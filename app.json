@@ -72,7 +72,8 @@
      */
     "css": [
         {
-            "path": "resources/css/app.css",
+            "path": "resources/css/sapa.css",
+            "platform": ["chrome", "safari", "ios", "ios-classic"],
             "update": "delta"
         }
     ],

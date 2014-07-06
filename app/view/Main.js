@@ -7,6 +7,7 @@ Ext.define('SAPA.view.Main', {
     ],
     config: {
         tabBarPosition: 'bottom',
+        hidden: true,
 
         items: [
             {

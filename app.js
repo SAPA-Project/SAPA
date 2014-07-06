@@ -18,6 +18,11 @@ Ext.application({
     ],
 
     views: [
+        'Main',
+        'Login.Main'
+    ],
+
+    controllers: [
         'Main'
     ],
 
@@ -45,6 +50,7 @@ Ext.application({
 
         // Initialize the main view
         Ext.Viewport.add(Ext.create('SAPA.view.Main'));
+        Ext.Viewport.add(Ext.create('SAPA.view.Login.Main'));
     },
 
     onUpdated: function() {
