@@ -19,49 +19,63 @@ Ext.define('SAPA.view.Login.Main', {
                 items: [
                     {
                         xtype: 'label',
-                        cls: 'login-screen-text',
+                        cls: 'login-screen-title',
                         html: 'SAPA'
                     }
                 ]
             },
             {
                 xtype: 'panel',
-                height: 25
+                layout: {
+                    type: 'hbox',
+                    pack: 'center'
+                },
+                items: [
+                    {
+                        xtype: 'label',
+                        cls: 'login-screen-tagline',
+                        html: 'Unlock your personality'
+                    }
+                ]
             },
-            // {
-            //     xtype: 'panel',
-            //     layout: {
-            //         type: 'hbox',
-            //         pack: 'center'
-            //     },
-            //     items: [
-            //         {
-            //             xtype: 'fixedbutton',
-            //             itemId: 'SignInButton',
-            //             baseCls: 'login-button',
-            //             html: '<h1 style="font-weight:lighter">Sign In</h1>'
-            //         }
-            //     ]
-            // },
-            // {
-            //     xtype: 'panel',
-            //     height: 15
-            // },
-            // {
-            //     xtype: 'panel',
-            //     layout: {
-            //         type: 'hbox',
-            //         pack: 'center'
-            //     },
-            //     items: [
-            //         {
-            //             xtype: 'fixedbutton',
-            //             itemId: 'MainSignUpButton',
-            //             baseCls: 'sign-up-button',
-            //             html: '<h1 style="font-weight:lighter">Sign Up</h1>'
-            //         }
-            //     ]
-            // },
+            {
+                xtype: 'panel',
+                height: 30
+            },
+            {
+                xtype: 'panel',
+                layout: {
+                    type: 'hbox',
+                    pack: 'center'
+                },
+                items: [
+                    {
+                        xtype: 'button',
+                        itemId: 'SignInButton',
+                        baseCls: 'login-button',
+                        html: '<h1 style="font-weight:lighter">Sign In</h1>'
+                    }
+                ]
+            },
+            {
+                xtype: 'panel',
+                height: 15
+            },
+            {
+                xtype: 'panel',
+                layout: {
+                    type: 'hbox',
+                    pack: 'center'
+                },
+                items: [
+                    {
+                        xtype: 'button',
+                        itemId: 'SignUpButton',
+                        baseCls: 'sign-up-button',
+                        html: '<h1 style="font-weight:lighter">Sign Up</h1>'
+                    }
+                ]
+            },
         ],
     },
 });

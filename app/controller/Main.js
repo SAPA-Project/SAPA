@@ -18,7 +18,6 @@ Ext.define('SAPA.controller.Main', {
 	},
 
 	initializeMain: function() {
-		console.log('here');
 		this.getMain().hide();
 		this.getLoginMain().show();
 	},

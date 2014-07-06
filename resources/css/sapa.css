@@ -13,7 +13,91 @@ h1 {
 	background-color: white;
 }
 
-.login-screen-text {
+.login-screen-title {
 	color: #4073b4;
 	font-size: 64px;
+}
+
+.login-screen-tagline {
+	color: #4073b4;
+	font-size: 18px;
+}
+
+.login-screen-text {
+	color: #4073b4;
+	font-size: 36px;
+}
+
+.login-screen-text-small {
+	color: #4073b4;
+	font-size: 18px;
+}
+ 
+.login-button {
+	width: 75%;
+	height: 35px;
+	background-color: #4073b4;
+	color: white;
+	font-size: 100%;
+	padding-top: 6px;
+	margin: 0 auto;
+	border-radius: 5px;
+}
+
+.sign-up-button {
+	width: 75%;
+	height: 35px;
+	background-color: #0099FF;
+	color: white;
+	font-size: 100%;
+	padding-top: 6px;
+	margin: 0 auto;
+	border-radius: 5px;
+}
+
+.facebook-button {
+	width: 75%;
+	height: 35px;
+	background-color: #3b5998;
+	color: white;
+	font-size: 100%;
+	padding-top: 6px;
+	margin: 0 auto;
+	border-radius: 5px;
+}
+
+.back-button-login {
+	color: #4073b4;
+	font-size: 25px;
+	height: 50px;
+	width: 50px;
+}
+
+.textarea-wrapper {
+	background-color: #E0E0E0;
+	border-radius: 5px;
+	border: 1px solid black;
+	width: 75%;
+	margin: 4px;
+	padding-bottom: 3px;
+}
+
+.textarea {
+	background-color: #E0E0E0;
+	width: 95%;
+	font-size: 15px;
+	white-space: normal !important;
+	margin: 3px;
+	border: none;
+}
+
+.x-field .x-field-input, .x-field .x-input-el {
+	background-color: #E0E0E0 !important;
+	border: none;
+	border-radius: 0px;
+}
+
+.line {
+	border-top: 1px solid #C9C9C9;
+	height: 1px;
 }

@@ -19,11 +19,18 @@ Ext.application({
 
     views: [
         'Main',
-        'Login.Main'
+        'Login.Main',
+        'Login.Login',
+        'Login.SignUp'
     ],
 
     controllers: [
-        'Main'
+        'Main',
+        'Login'
+    ],
+
+    uis: [
+        'FixedButton'
     ],
 
     icon: {
@@ -51,6 +58,8 @@ Ext.application({
         // Initialize the main view
         Ext.Viewport.add(Ext.create('SAPA.view.Main'));
         Ext.Viewport.add(Ext.create('SAPA.view.Login.Main'));
+        Ext.Viewport.add(Ext.create('SAPA.view.Login.Login'));
+        Ext.Viewport.add(Ext.create('SAPA.view.Login.SignUp'));
     },
 
     onUpdated: function() {
