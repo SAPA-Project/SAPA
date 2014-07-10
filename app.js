@@ -14,7 +14,8 @@ Ext.application({
     name: 'SAPA',
 
     requires: [
-        'Ext.MessageBox'
+        'Ext.MessageBox',
+        'SAPA.config.Runtime',
     ],
 
     views: [

@@ -39,6 +39,10 @@
      *      }
      */
     "js": [
+		{
+			"path": "cordova.js",
+			"remote": true
+		},
         {
             "path": "touch/sencha-touch.js",
             "x-bootstrap": true
@@ -50,6 +54,18 @@
         {
             "path": "app.js",
             "bundle": true,  /* Indicates that all class dependencies are concatenated into this file when build */
+            "update": "delta"
+        },
+        {
+            "path": "resources/Parse/Parse.js",
+            "update": "delta"
+        },
+        {
+            "path": "resources/Functions.js",
+            "update": "delta"
+        },
+        {
+            "path": "resources/Startup.js",
             "update": "delta"
         }
     ],
@@ -104,6 +120,7 @@
      * Extra resources to be copied along when build
      */
     "resources": [
+		"config.xml",
         "resources/images",
         "resources/icons",
         "resources/startup"

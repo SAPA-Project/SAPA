@@ -72,18 +72,6 @@ Ext.define('SAPA.view.Login.SignUp', {
                                 layout: 'vbox',
                                 items: [
                                     {
-                                        xtype: 'textfield',
-                                        itemId: 'FullNameFieldSignUp',
-                                        cls: 'textarea',
-                                        label: '',
-                                        placeHolder: 'First and last name',
-                                        disabled: true
-                                    },
-                                    {
-                                        xtype: 'panel',
-                                        cls: 'line',
-                                    },
-                                    {
                                         xtype: 'emailfield',
                                         itemId: 'UsernameFieldSignUp',
                                         cls: 'textarea',

@@ -16,7 +16,8 @@ Ext.Loader.addClassPathMappings({
   "Ext.device.sqlite.SQLResultSet": "touch/src/device/sqlite/Sencha.js",
   "Ext.device.sqlite.SQLResultSetRowList": "touch/src/device/sqlite/Sencha.js",
   "Ext.device.sqlite.SQLTransaction": "touch/src/device/sqlite/Sencha.js",
-  "SAPA": "app"
+  "SAPA": "app",
+  "triggr": "app"
 });
 Ext.ClassManager.addNameAlternateMappings({
   "Ext.AbstractComponent": [],
@@ -638,7 +639,15 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.viewport.WindowsPhone": [
     "Ext.viewport.WP"
   ],
-  "SAPA.view.Main": []
+  "SAPA.controller.Login": [],
+  "SAPA.controller.Main": [],
+  "SAPA.view.Login.Login": [],
+  "SAPA.view.Login.Main": [],
+  "SAPA.view.Login.SignUp": [],
+  "SAPA.view.Main": [],
+  "SAPA.view.MainPanel": [],
+  "SAPA.view.Titlebar": [],
+  "triggr.ui.FixedButton": []
 });
 Ext.ClassManager.addNameAliasMappings({
   "Ext.AbstractComponent": [],
@@ -1357,7 +1366,31 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.viewport.Ios": [],
   "Ext.viewport.Viewport": [],
   "Ext.viewport.WindowsPhone": [],
+  "SAPA.controller.Login": [
+    "widget.logincontroller"
+  ],
+  "SAPA.controller.Main": [
+    "widget.maincontroller"
+  ],
+  "SAPA.view.Login.Login": [
+    "widget.loginscreen"
+  ],
+  "SAPA.view.Login.Main": [
+    "widget.loginmain"
+  ],
+  "SAPA.view.Login.SignUp": [
+    "widget.signupscreen"
+  ],
   "SAPA.view.Main": [
     "widget.main"
+  ],
+  "SAPA.view.MainPanel": [
+    "widget.mainpanel"
+  ],
+  "SAPA.view.Titlebar": [
+    "widget.maintitlebar"
+  ],
+  "triggr.ui.FixedButton": [
+    "widget.fixedbutton"
   ]
 });
