@@ -8,7 +8,7 @@ Ext.define('SAPA.controller.Login', {
 			'loginScreen': 'loginscreen',
 			'signUpScreen': 'signupscreen',
 			'signInButtonMain': 'button[itemId=SignInButton]',
-			'signUpButtonMain': 'button[itemId=SignUpButton]',
+			'signUpButtonMain': 'button[itemId=SignUpButtonMain]',
 			'backButtonLogin': 'button[itemId=BackButtonLogin]',
 			'backButtonSignUp': 'button[itemId=BackButtonSignUp]',
 			'usernameFieldLogin': 'emailfield[itemId=UsernameFieldLogin]',
@@ -18,7 +18,9 @@ Ext.define('SAPA.controller.Login', {
 			'usernameFieldSignUp': 'emailfield[itemId=UsernameFieldSignUp]',
 			'passwordFieldSignUp': 'passwordfield[itemId=PasswordFieldSignUp]',
 			'confirmPasswordFieldSignUp': 'passwordfield[itemId=ConfirmPasswordFieldSignUp]',
-			'loginButton': 'button[itemId=LoginButton]'
+			'loginButton': 'button[itemId=LoginButton]',
+			'signUpButton': 'button[itemId=SignUpButton]',
+			'logOutButton': 'button[itemId=LogOutButton]'
 		},
 		control: {
 			'signInButtonMain': {
@@ -35,6 +37,12 @@ Ext.define('SAPA.controller.Login', {
 			},
 			'loginButton': {
 				tap: 'loginUser'
+			},
+			'signUpButton': {
+				tap: 'signUpUser'
+			},
+			'logOutButton': {
+				tap: 'logOutUser'
 			}
 		}
 	},
@@ -85,6 +93,28 @@ Ext.define('SAPA.controller.Login', {
 		setTimeout(run,500);
 	},
 
+	autoLogin: function() {
+		var currentUser = Parse.User.current();
+		var UserSettings = Parse.Object.extend('UserSettings');
+		var query = new Parse.Query(UserSettings);
+		query.equalTo('username',currentUser.get('username'));
+		showLoadingMask('');
+		query.first({
+			success: function(user) {
+				SAPA.config.Runtime.setCurrentUser(user);
+				SAPA.app.getController('Login').getLoginMain().hide({type: 'fadeOut', duration: 500, easing: 'easeOut'});
+			    SAPA.app.getController('Login').getMain().show({type: 'fadeIn', duration: 500, easing: 'easeIn'});
+			    var run = function() {
+    				SAPA.app.getController('Main').checkForPush();
+    			}
+    			setTimeout(run,500);
+			},
+			error: function(error) {
+				console.log(error);
+			}
+		});
+	},
+
 	loginUser: function() {
 
 		var username = this.getUsernameFieldLogin().getValue();
@@ -111,10 +141,14 @@ Ext.define('SAPA.controller.Login', {
 				query.equalTo('username',user.get('username'));
 				query.first({
 					success: function(result) {
-						hideLoadingMask();
 						if(result !== undefined) {
 							SAPA.config.Runtime.setCurrentUser(result);
-							// SAPA.app.getController('Login').showMainViewAfterLogin(result);
+							SAPA.app.getController('Login').getLoginScreen().hide({type: 'fadeOut', duration: 500, easing: 'easeOut'});
+			    			SAPA.app.getController('Login').getMain().show({type: 'fadeIn', duration: 500, easing: 'easeIn'});
+			    			var run = function() {
+			    				SAPA.app.getController('Main').checkForPush();
+			    			}
+			    			setTimeout(run,500);
 						}
 						else {
 							Ext.Msg.alert('Invalid email', 'Please enter a valid email address.', Ext.emptyFn);
@@ -155,6 +189,69 @@ Ext.define('SAPA.controller.Login', {
 			}
 		});
 
+	},
+
+	signUpUser: function() {
+
+		var password = this.getPasswordFieldSignUp().getValue();
+		var confirmPassword = this.getConfirmPasswordFieldSignUp().getValue();
+		var username = this.getUsernameFieldSignUp().getValue();
+
+		if(password !== confirmPassword) {
+			Ext.Msg.alert('Error','Passwords do not match.',Ext.emptyFn);
+			return;
+		}
+
+		if(password === '') {
+			Ext.Msg.alert('Error','Please enter a password.',Ext.emptyFn);
+			return;
+		}
+
+		if(!validateEmail(username)) {
+			Ext.Msg.alert('Error','Please enter a valid email address.',Ext.emptyFn);
+			return;
+		}
+
+		else {
+
+			showLoadingMask('Creating Account...');
+			var user = new Parse.User();
+			user.set('username',username);
+			user.set('password',password);
+			user.set('email',username);
+
+			user.signUp(null, {
+			  	success: function(user) {
+			  		var UserSettings = Parse.Object.extend('UserSettings');
+			  		var userSettings = new UserSettings();
+			  		userSettings.set('username',user.get('username'));
+			  		userSettings.save();
+
+			  		SAPA.config.Runtime.setCurrentUser(userSettings);
+			    	hideLoadingMask();
+			    	
+			    	SAPA.app.getController('Login').getSignUpScreen().hide({type: 'fadeOut', duration: 500, easing: 'easeOut'});
+			    	SAPA.app.getController('Login').getMain().show({type: 'fadeIn', duration: 500, easing: 'easeIn'});
+			  	},
+			  	error: function(user, error) {
+			    	hideLoadingMask();
+			    	Ext.Msg.alert('Error',error.message.charAt(0).toUpperCase() + error.message.slice(1),Ext.emptyFn);
+			  	}
+			});
+			
+		}
+		
+	},
+
+	logOutUser: function() {
+		Ext.Msg.confirm("Log out", "Are you sure you want to log out?", function(btn) {
+			if(btn === 'yes') {
+				Parse.User.logOut();
+				SAPA.config.Runtime.setCurrentUser(undefined);
+				SAPA.app.getController('Login').getMain().hide({type: 'fadeOut', duration: 500, easing: 'easeOut'});
+				SAPA.app.getController('Login').getLoginMain().show({type: 'slide', direction: 'right', duration: 500, easing: 'easeIn'});
+			}
+		});
 	}
 
 });	

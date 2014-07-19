@@ -4,4 +4,4 @@
  * combination of content from app.json, and all required package's package.json
  * files.  Customizations should be placed in app.json.
  */
-{"id":"862175bf-df0c-4c31-a6de-900a865c1aed","js":[{"path":"cordova.js","remote":true},{"path":"touch/sencha-touch.js"},{"path":"bootstrap.js"},{"path":"app.js","update":"delta"},{"path":"resources/Parse/Parse.js","update":"delta"},{"path":"resources/Startup.js","update":"delta"}],"css":[{"path":"resources/css/sapa.css","update":"delta","platform":["chrome","safari","ios","ios-classic"]}]}
+{"id":"862175bf-df0c-4c31-a6de-900a865c1aed","js":[{"path":"cordova.js","remote":true},{"path":"touch/sencha-touch.js"},{"path":"bootstrap.js"},{"path":"app.js","update":"delta"},{"path":"resources/Parse/Parse.js","update":"delta"},{"path":"resources/Functions.js","update":"delta"},{"path":"resources/Startup.js","update":"delta"}],"css":[{"path":"resources/css/sapa.css","update":"delta","platform":["chrome","safari","ios","ios-classic"]}]}

@@ -22,12 +22,14 @@ Ext.application({
         'Main',
         'Login.Main',
         'Login.Login',
-        'Login.SignUp'
+        'Login.SignUp',
+        'Notification.SliderQuestion'
     ],
 
     controllers: [
         'Main',
-        'Login'
+        'Login',
+        'Questions'
     ],
 
     uis: [
@@ -61,6 +63,7 @@ Ext.application({
         Ext.Viewport.add(Ext.create('SAPA.view.Login.Main'));
         Ext.Viewport.add(Ext.create('SAPA.view.Login.Login'));
         Ext.Viewport.add(Ext.create('SAPA.view.Login.SignUp'));
+        Ext.Viewport.add(Ext.create('SAPA.view.Notification.SliderQuestion'));
     },
 
     onUpdated: function() {

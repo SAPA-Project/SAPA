@@ -10,7 +10,16 @@ Ext.define('SAPA.view.Titlebar', {
 		title: 'SAPA',
 		width: '100%',
 		items: [
-
+			{
+				xtype: 'button',
+				itemId: 'LogOutButton',
+				ui: 'plain',
+				baseCls: 'logout-button',
+				text: 'Logout',
+				align: 'right',
+				right: 15,
+				top: 15
+			}
 		]
 	}
 });

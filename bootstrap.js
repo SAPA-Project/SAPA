@@ -639,13 +639,16 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.viewport.WindowsPhone": [
     "Ext.viewport.WP"
   ],
+  "SAPA.config.Runtime": [],
   "SAPA.controller.Login": [],
   "SAPA.controller.Main": [],
+  "SAPA.controller.Questions": [],
   "SAPA.view.Login.Login": [],
   "SAPA.view.Login.Main": [],
   "SAPA.view.Login.SignUp": [],
   "SAPA.view.Main": [],
   "SAPA.view.MainPanel": [],
+  "SAPA.view.Notification.SliderQuestion": [],
   "SAPA.view.Titlebar": [],
   "triggr.ui.FixedButton": []
 });
@@ -1366,11 +1369,15 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.viewport.Ios": [],
   "Ext.viewport.Viewport": [],
   "Ext.viewport.WindowsPhone": [],
+  "SAPA.config.Runtime": [],
   "SAPA.controller.Login": [
     "widget.logincontroller"
   ],
   "SAPA.controller.Main": [
     "widget.maincontroller"
+  ],
+  "SAPA.controller.Questions": [
+    "widget.questionscontroller"
   ],
   "SAPA.view.Login.Login": [
     "widget.loginscreen"
@@ -1386,6 +1393,9 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "SAPA.view.MainPanel": [
     "widget.mainpanel"
+  ],
+  "SAPA.view.Notification.SliderQuestion": [
+    "widget.sliderquestion"
   ],
   "SAPA.view.Titlebar": [
     "widget.maintitlebar"

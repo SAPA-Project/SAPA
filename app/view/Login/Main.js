@@ -70,7 +70,7 @@ Ext.define('SAPA.view.Login.Main', {
                 items: [
                     {
                         xtype: 'button',
-                        itemId: 'SignUpButton',
+                        itemId: 'SignUpButtonMain',
                         baseCls: 'sign-up-button',
                         html: '<h1 style="font-weight:lighter">Sign Up</h1>'
                     }

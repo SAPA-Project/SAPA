@@ -6,5 +6,6 @@ function init() {
 }
 
 function onDeviceReady() {
+	console.log('initialized!');
 	Parse.initialize("nDKW4Ew4GAEIAr7SzM2ruMLadgtAhucsbOn0FY1v", "MwdgP1F8fHK1jHZ9vqoJ4RpM6BWbQeDxigRoFjQI");
 }
