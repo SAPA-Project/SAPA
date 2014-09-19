@@ -15,7 +15,7 @@ function onDeviceReady() {
 	function tokenHandler (result) {
 	    // Your iOS push server needs to know the token before it can push to this device
 	    // here is where you might want to send it the token for later use.
-	    alert('device token = ' + result);
+	    SAPA.config.Runtime.setCurrentDeviceToken(result);
 	}
 
 	function errorHandler (error) {
@@ -39,8 +39,7 @@ function onDeviceReady() {
 	    {
 	        "badge":"true",
 	        "sound":"true",
-	        "alert":"true",
-	        "ecb":"onNotificationAPN"
+	        "alert":"true"
 	    });
 	}
 
@@ -54,6 +53,8 @@ function getNotifications() {
 			success: function(user) {
 				hideLoadingMask();
 				if(user.get('push')) {
+					user.set('push',false);
+					user.save();
 					if(Ext.ComponentQuery.query('sliderquestion')[0].getHidden()) {
 						SAPA.app.getController('Questions').showSliderQuestions();
 					}

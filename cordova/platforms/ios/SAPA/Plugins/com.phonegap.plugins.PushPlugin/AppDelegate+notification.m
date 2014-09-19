@@ -55,6 +55,10 @@ static char launchNotificationKey;
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     PushPlugin *pushHandler = [self getCommandInstance:@"PushPlugin"];
     [pushHandler didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
+    //Parse stuff: Store the deviceToken in the current installation and save it to Parse.
+     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+     [currentInstallation setDeviceTokenFromData:deviceToken];
+     [currentInstallation saveInBackground];
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
@@ -84,10 +88,21 @@ static char launchNotificationKey;
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     
-    NSLog(@"active");
+    NSLog(@"active!");
     
     //zero badge
-    application.applicationIconBadgeNumber = 0;
+//    application.applicationIconBadgeNumber = 0;
+    
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    if (currentInstallation.badge != 0) {
+        NSLog(@"here");
+        currentInstallation.badge = 0;
+        [currentInstallation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (error) {
+                [currentInstallation saveEventually];
+            }
+        }];
+    }
 
     if (self.launchNotification) {
         PushPlugin *pushHandler = [self getCommandInstance:@"PushPlugin"];

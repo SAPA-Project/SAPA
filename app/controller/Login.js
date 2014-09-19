@@ -143,10 +143,22 @@ Ext.define('SAPA.controller.Login', {
 					success: function(result) {
 						if(result !== undefined) {
 							SAPA.config.Runtime.setCurrentUser(result);
+							//Set Installation:
+							var params = {
+								deviceToken: SAPA.config.Runtime.getCurrentDeviceToken(),
+								username: result.get('username')
+							};
+							Parse.Cloud.run('SetInstallationUser', params, {
+								error: function(error) {
+									alert(error.message);
+								}
+							});
 							SAPA.app.getController('Login').getLoginScreen().hide({type: 'fadeOut', duration: 500, easing: 'easeOut'});
 			    			SAPA.app.getController('Login').getMain().show({type: 'fadeIn', duration: 500, easing: 'easeIn'});
 			    			var run = function() {
 			    				SAPA.app.getController('Main').checkForPush();
+			    				SAPA.app.getController('Login').getUsernameFieldLogin().setValue('');
+								SAPA.app.getController('Login').getPasswordFieldLogin().setValue('');
 			    			}
 			    			setTimeout(run,500);
 						}
@@ -225,13 +237,32 @@ Ext.define('SAPA.controller.Login', {
 			  		var UserSettings = Parse.Object.extend('UserSettings');
 			  		var userSettings = new UserSettings();
 			  		userSettings.set('username',user.get('username'));
+			  		userSettings.set('push',true);
 			  		userSettings.save();
 
 			  		SAPA.config.Runtime.setCurrentUser(userSettings);
 			    	hideLoadingMask();
+
+			    	//Set Installation:
+					var params = {
+						deviceToken: SAPA.config.Runtime.getCurrentDeviceToken(),
+						username: userSettings.get('username')
+					};
+					Parse.Cloud.run('SetInstallationUser', params, {
+						error: function(error) {
+							alert(error.message);
+						}
+					});
 			    	
 			    	SAPA.app.getController('Login').getSignUpScreen().hide({type: 'fadeOut', duration: 500, easing: 'easeOut'});
 			    	SAPA.app.getController('Login').getMain().show({type: 'fadeIn', duration: 500, easing: 'easeIn'});
+			    	var run = function() {
+	    				SAPA.app.getController('Main').checkForPush();
+	    				SAPA.app.getController('Login').getUsernameFieldSignUp().setValue('');
+	    				SAPA.app.getController('Login').getPasswordFieldSignUp().setValue('');
+						SAPA.app.getController('Login').getConfirmPasswordFieldSignUp().setValue('');
+	    			}
+	    			setTimeout(run,500);
 			  	},
 			  	error: function(user, error) {
 			    	hideLoadingMask();
