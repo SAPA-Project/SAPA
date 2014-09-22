@@ -23,6 +23,7 @@ Ext.application({
         'Login.Main',
         'Login.Login',
         'Login.SignUp',
+        'Login.UserDemographics',
         'Notification.SliderQuestion'
     ],
 
@@ -64,6 +65,7 @@ Ext.application({
         Ext.Viewport.add(Ext.create('SAPA.view.Login.Login'));
         Ext.Viewport.add(Ext.create('SAPA.view.Login.SignUp'));
         Ext.Viewport.add(Ext.create('SAPA.view.Notification.SliderQuestion'));
+        Ext.Viewport.add(Ext.create('SAPA.view.Login.UserDemographics'));
     },
 
     onUpdated: function() {

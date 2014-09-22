@@ -646,6 +646,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "SAPA.view.Login.Login": [],
   "SAPA.view.Login.Main": [],
   "SAPA.view.Login.SignUp": [],
+  "SAPA.view.Login.UserDemographics": [],
   "SAPA.view.Main": [],
   "SAPA.view.MainPanel": [],
   "SAPA.view.Notification.SliderQuestion": [],
@@ -1387,6 +1388,9 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "SAPA.view.Login.SignUp": [
     "widget.signupscreen"
+  ],
+  "SAPA.view.Login.UserDemographics": [
+    "widget.userdemographicscreen"
   ],
   "SAPA.view.Main": [
     "widget.main"

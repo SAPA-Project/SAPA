@@ -10,29 +10,29 @@
 	<string>SAPA</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>9F7093CE-6CE3-4430-ADC0-343A6F8B6DBA</key>
+		<key>417264C3EFC0928DB3963AF7A9BAC6D72356CCFA</key>
 		<string>https://github.com/SAPA-Project/SAPA.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>cordova/platforms/ios/SAPA.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>9F7093CE-6CE3-4430-ADC0-343A6F8B6DBA</key>
+		<key>417264C3EFC0928DB3963AF7A9BAC6D72356CCFA</key>
 		<string>../../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/SAPA-Project/SAPA.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>9F7093CE-6CE3-4430-ADC0-343A6F8B6DBA</string>
+	<string>417264C3EFC0928DB3963AF7A9BAC6D72356CCFA</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>9F7093CE-6CE3-4430-ADC0-343A6F8B6DBA</string>
+			<string>417264C3EFC0928DB3963AF7A9BAC6D72356CCFA</string>
 			<key>IDESourceControlWCCName</key>
 			<string>SAPA</string>
 		</dict>

@@ -548,6 +548,7 @@
 				);
 				PRODUCT_NAME = SAPA;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -582,6 +583,7 @@
 				);
 				PRODUCT_NAME = SAPA;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Release;
 		};
